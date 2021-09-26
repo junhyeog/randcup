@@ -1,0 +1,13 @@
+{
+	"name": "radcup",
+	"description": "이상형 월드컵 랜덤 버튼",
+	"version": "1.0",
+	"manifest_version": 2,
+	"background": {
+    "page": "background.html",
+    "persistent": false
+  },
+	"permissions": [
+    "storage"
+  ]
+}
