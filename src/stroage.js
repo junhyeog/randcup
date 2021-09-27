@@ -1,13 +1,13 @@
-function setData(key, value){
-	chrome.storage.sync.set({key: value}, function() {
+function setData(key, value) {
+	chrome.storage.sync.set({ key: value }, function () {
 		console.log(`setData: { ${key} : ${value} }`);
 	});
 }
 
-function getData(key){
+function getData(key) {
 	let res = chrome.storage.sync.get(key);
-  console.log(`getData: { ${key} : ${res} }`)
-  return res;
+	console.log(`getData: { ${key} : ${res} }`);
+	return res;
 }
 
-export {setData, getData};
+export { setData, getData };

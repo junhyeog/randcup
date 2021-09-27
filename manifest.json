@@ -4,10 +4,33 @@
 	"version": "1.0",
 	"manifest_version": 2,
 	"background": {
-    "page": "background.html",
-    "persistent": false
-  },
+		"page": "background.html",
+		"persistent": false
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://codeforces.com/*"],
+			"js": ["./src/content.js"]
+		}
+	],
+	"page_action": {
+		"default_icon": {
+			"32": "icons/get_started32.png"
+		}
+	},
+	"commands": {
+		"test": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+Z"
+			},
+			"description": "Send a 'test' event to the extension"
+		}
+	},
 	"permissions": [
-    "storage"
-  ]
+		"storage",
+		"contextMenus",
+		"tabs",
+		"activeTab",
+		"declarativeContent"
+	]
 }
