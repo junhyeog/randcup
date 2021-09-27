@@ -1,5 +1,5 @@
-import { defaultColor, defaultText } from "./variables.js";
-import { setData } from "./stroage.js";
+import { defaultColor, defaultText } from "./constants.js";
+import { setData } from "./storage.js";
 
 chrome.runtime.onInstalled.addListener(() => {
 	// Set default color and text

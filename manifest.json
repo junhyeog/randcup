@@ -9,9 +9,15 @@
 	},
 	"content_scripts": [
 		{
-			"matches": ["https://codeforces.com/*"],
-			"js": ["./src/content.js"]
+			"matches": ["https://www.piku.co.kr/w/*"],
+			"js": ["src/contentWrapper.js"],
+			"css": ["src/styles/randomButton.css"]
 		}
+	],
+	"web_accessible_resources": [
+		"src/content.js",
+		"src/components/randomButton.js",
+		"src/constants.js"
 	],
 	"page_action": {
 		"default_icon": {
