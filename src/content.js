@@ -1,38 +1,28 @@
 import getRandomButton from "./components/randomButton.js";
-import { defaultText, defaultColor } from "./constants.js";
-
-console.log("[+] Hello I'm matched content");
-
-//* Handle message
-/**
- *
- * @param {object} mes
- * @returns {boolean} is handled ? 1 : 0
- */
-function messageHandler(mes) {
-	return confirm("messageHandeler");
-}
-
-function messageListener(message, sender, sendResponse) {
-	console.log("[+] Message recieved: ", message);
-	if (messageHandler(message)) {
-		console.log(`[+] Done: ${message.command}`);
-		sendResponse({ success: true });
-	} else {
-		console.log("[-] Failed to handle message");
-		sendResponse({ success: false });
-	}
-}
-
-// chrome.runtime.onMessage.addListener(messageListener);
+import getRandomSlider from "./components/randomSlider.js";
+import defaultText from "./constants.js";
 
 //* Add Button on site
-
-function addRandomButton(text, color) {
-	console.log(`[+] add random button(${text}, ${color})`);
-	let randomButton = getRandomButton(text, color);
+function addRandomButton(text) {
+	console.log(`[+] add random button(${text})`);
+	let randomButton = getRandomButton(text);
 	let content = document.getElementsByClassName("ibox-content")[0];
 	content.appendChild(randomButton);
 }
 
-addRandomButton(defaultText, defaultColor);
+//* Add Slider on site
+function addRandomSlider(text) {
+	console.log(`[+] add random slider(${text})`);
+	let randomSlider = getRandomSlider(text);
+	let content = document.getElementsByClassName("ibox-content")[0];
+	content.appendChild(randomSlider);
+}
+
+const wleft = document.getElementById("wleft");
+const wright = document.getElementById("wright");
+
+if (wleft && wright) {
+	console.log(`[+] It's matched content`);
+	// addRandomButton(defaultText);
+	addRandomSlider("dbclick");
+}
