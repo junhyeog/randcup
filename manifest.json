@@ -1,0 +1,26 @@
+{
+	"name": "radcup",
+	"description": "이상형 월드컵 랜덤 버튼",
+	"version": "1.0",
+	"manifest_version": 2,
+	"background": {
+		"page": "background.html",
+		"persistent": false
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://www.piku.co.kr/w/*"],
+			"js": ["src/contentWrapper.js"],
+			"css": ["src/styles/randomButton.css", "src/styles/randomSlider.css"]
+		}
+	],
+	"web_accessible_resources": ["src/*"],
+	"page_action": {
+		"default_icon": {
+			"32": "icons/active_32.png",
+			"64": "icons/active_64.png",
+			"128": "icons/active_128.png"
+		}
+	},
+	"permissions": ["tabs", "activeTab"]
+}
