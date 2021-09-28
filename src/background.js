@@ -1,16 +1,23 @@
-chrome.runtime.onInstalled.addListener(() => {
-	// Set rule
-	// Find boj first test case copy button
-	// const rule = {
-	// 	conditions: [
-	// 		new chrome.declarativeContent.PageStateMatcher({
-	// 			pageUrl: { hostEquals: "www.codeforces.com" },
-	// 		}),
-	// 	],
-	// 	actions: [new chrome.declarativeContent.ShowPageAction()],
-	// };
-	// //  conditions에 맞는 페이지일 경우 page_action 활성화
-	// chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
-	// 	chrome.declarativeContent.onPageChanged.addRules([rule]);
-	// });
+const activeIcon = {
+	32: "icons/active_32.png",
+	64: "icons/active_64.png",
+	128: "icons/active_128.png",
+};
+
+const inactiveIcon = {
+	32: "icons/inactive_32.png",
+	64: "icons/inactive_64.png",
+	128: "icons/inactive_128.png",
+};
+
+chrome.tabs.onActivated.addListener(function (activeInfo) {
+	chrome.tabs.get(activeInfo.tabId, (tab) => {
+		if (tab.url.startsWith("https://www.piku.co.kr/")) {
+			console.log(`[+] Active`);
+			chrome.pageAction.setIcon({ path: activeIcon, tabId: tab.id });
+		} else {
+			console.log(`[-] Inactive`);
+			chrome.pageAction.setIcon({ path: inactiveIcon, tabId: tab.id });
+		}
+	});
 });

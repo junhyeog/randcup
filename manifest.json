@@ -17,22 +17,10 @@
 	"web_accessible_resources": ["src/*"],
 	"page_action": {
 		"default_icon": {
-			"32": "icons/get_started32.png"
+			"32": "icons/active_32.png",
+			"64": "icons/active_64.png",
+			"128": "icons/active_128.png"
 		}
 	},
-	"commands": {
-		"test": {
-			"suggested_key": {
-				"default": "Ctrl+Shift+Z"
-			},
-			"description": "Send a 'test' event to the extension"
-		}
-	},
-	"permissions": [
-		"storage",
-		"contextMenus",
-		"tabs",
-		"activeTab",
-		"declarativeContent"
-	]
+	"permissions": ["tabs", "activeTab"]
 }
