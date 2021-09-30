@@ -24,5 +24,5 @@ const wright = document.getElementById("wright");
 if (wleft && wright) {
 	console.log(`[+] It's matched content`);
 	// addRandomButton(defaultText);
-	addRandomSlider("dbclick");
+	addRandomSlider(defaultText);
 }
